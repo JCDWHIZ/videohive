@@ -1,4 +1,4 @@
-# Bafuto April 2026 Backend
+# VideoHive Backend
 
 A simple Node.js + Express + TypeScript backend project with MongoDB connection and starter auth/contact routes.
 
