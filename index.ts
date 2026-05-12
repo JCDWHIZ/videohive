@@ -13,7 +13,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use(authRouter);
+app.use("/auth", authRouter);
 
 // // for formdata url encoded data
 // app.use(express.urlencoded({ extended: true }));

@@ -3,6 +3,7 @@
 A simple Node.js + Express + TypeScript backend project with MongoDB connection and starter auth/contact routes.
 
 ## Tech Stack
+
 - Node.js
 - TypeScript
 - Express
@@ -11,21 +12,27 @@ A simple Node.js + Express + TypeScript backend project with MongoDB connection 
 - ts-node-dev
 
 ## Prerequisites
+
 - Node.js (v18+ recommended)
 - npm
 - A MongoDB connection string (MongoDB Atlas or local MongoDB)
 
 ## Environment Variables
+
 Create a `.env` file in the project root:
 
 ```env
 MONGO_URL=your_mongodb_connection_string
+JWT_SECRET_KEY=your_jwt_secret_key
 ```
 
 ### Variable Details
+
 - `MONGO_URL`: MongoDB connection URI used by `config/db.ts`.
+- `JWT_SECRET_KEY`: Secret key for signing JWT tokens.
 
 ## Setup
+
 1. Clone the repository.
 2. Open a terminal in the project root.
 3. Install dependencies:
@@ -37,6 +44,7 @@ npm install
 4. Create and update `.env` with your MongoDB URI.
 
 ## Run the Project
+
 Start the development server:
 
 ```bash
@@ -44,16 +52,20 @@ npm start
 ```
 
 The server runs on:
+
 - `http://localhost:5555`
 
 ## Available Endpoints
+
 - `GET /` -> health/welcome response
 - `GET /about` -> basic about response
 - `POST /contact` -> contact form validation route
 - `POST /login` -> starter login route
 
 ## Example Test Requests
+
 ### Login
+
 ```bash
 curl -X POST http://localhost:5555/login \
   -H "Content-Type: application/json" \
@@ -61,6 +73,7 @@ curl -X POST http://localhost:5555/login \
 ```
 
 ### Contact
+
 ```bash
 curl -X POST http://localhost:5555/contact \
   -H "Content-Type: application/json" \
@@ -68,5 +81,6 @@ curl -X POST http://localhost:5555/contact \
 ```
 
 ## Notes
+
 - The app currently listens on a fixed port `5555`.
 - Database connection is optional at startup, but most real features will require a valid `MONGO_URL`.
