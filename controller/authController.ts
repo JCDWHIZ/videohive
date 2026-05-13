@@ -193,4 +193,14 @@ export const refreshToken = async (req: Request, res: Response) => {
 
 export const logout = (req: Request, res: Response) => {};
 
-export const getMe = (req: Request, res: Response) => {};
+export const getMe = (req: any, res: Response) => {
+  if (!req.user) {
+    return res.status(401).json({
+      message: "Unauthorized",
+    });
+  }
+  res.status(200).json({
+    user: req.user,
+    message: "User details fetched successfully",
+  });
+};
