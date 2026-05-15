@@ -2,6 +2,8 @@ import express, { Application, Request, Response } from "express";
 import { ConnectToDb } from "./config/db";
 const app: Application = express();
 const authRouter = require("./routes/auth");
+const userRouter = require("./routes/user");
+
 require("dotenv").config();
 app.use(express.json());
 ConnectToDb();
@@ -14,6 +16,7 @@ app.use((req, res, next) => {
 });
 
 app.use("/auth", authRouter);
+app.use("/users", userRouter);
 
 // // for formdata url encoded data
 // app.use(express.urlencoded({ extended: true }));

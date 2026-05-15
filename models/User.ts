@@ -63,6 +63,18 @@ const userSchema = new Schema(
       default: 0,
     },
     lastLoginAt: Date,
+    Followers: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
+    Following: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+      },
+    ],
   },
   { timestamps: true },
 );

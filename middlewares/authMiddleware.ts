@@ -33,6 +33,11 @@ export const protectRoute = async (
     console.log("User authenticated:", user);
   } catch (error) {
     console.error("Error in protectRoute middleware:", error);
+    if (error instanceof jwt.JsonWebTokenError) {
+      return res.status(401).json({
+        message: "Invalid token",
+      });
+    }
 
     res.status(500).json({
       message: "Internal server error",
