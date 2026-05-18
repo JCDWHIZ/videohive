@@ -24,6 +24,9 @@ Create a `.env` file in the project root:
 ```env
 MONGO_URL=your_mongodb_connection_string
 JWT_SECRET_KEY=your_jwt_secret_key
+CLOUDINARY_API_SECRET=cloudinary_api_secret_here
+CLOUDINARY_API_KEY=cloudinary_api_key_here
+CLOUDINARY_CLOUD_NAME=cloudinary_cloud_name_here
 ```
 
 ### Variable Details
@@ -41,7 +44,7 @@ JWT_SECRET_KEY=your_jwt_secret_key
 npm install
 ```
 
-4. Create and update `.env` with your MongoDB URI.
+4. Create and update `.env` with your environment variables.
 
 ## Run the Project
 

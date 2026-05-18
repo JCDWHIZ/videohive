@@ -3,9 +3,11 @@ import { ConnectToDb } from "./config/db";
 const app: Application = express();
 const authRouter = require("./routes/auth");
 const userRouter = require("./routes/user");
+const uploadRouter = require("./routes/upload");
 
 require("dotenv").config();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 ConnectToDb();
 
 app.use((req, res, next) => {
@@ -17,8 +19,9 @@ app.use((req, res, next) => {
 
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
+app.use("/uploads", uploadRouter);
 
-// // for formdata url encoded data
+// // for formdata url euploadRouterncoded data
 // app.use(express.urlencoded({ extended: true }));
 // // for from data
 // app.use(express.urlencoded({ extended: true }));
