@@ -1,6 +1,9 @@
 import express from "express";
 import { upload } from "../config/multerConfig";
-import { singleUpload } from "../controller/uploadController";
+import {
+  singleImageUpload,
+  singleVideoUpload,
+} from "../controller/uploadController";
 
 const router = express.Router();
 
@@ -33,7 +36,8 @@ const router = express.Router();
 // };
 
 // Single file upload
-router.post("/single", upload.single("image"), singleUpload);
+router.post("/image/single", upload.single("image"), singleImageUpload);
+router.post("/video/single", upload.single("video"), singleVideoUpload);
 
 // // Multiple files upload
 // router.post("/multiple", upload.array("files", 5), multipleUploads);

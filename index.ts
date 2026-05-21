@@ -20,6 +20,7 @@ app.use((req, res, next) => {
 app.use("/auth", authRouter);
 app.use("/users", userRouter);
 app.use("/uploads", uploadRouter);
+app.use("/videos", require("./routes/video"));
 
 // // for formdata url euploadRouterncoded data
 // app.use(express.urlencoded({ extended: true }));

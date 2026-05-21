@@ -12,6 +12,23 @@
       "item": [
         {
           "name": "Login User",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "var jsonData = pm.response.json();\r",
+                  "token = jsonData[\"token\"]\r",
+                  "console.log(token)\r",
+                  "\r",
+                  "pm.collectionVariables.set(\"token\", token);"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
           "request": {
             "method": "POST",
             "header": [],
@@ -303,6 +320,489 @@
           "response": []
         }
       ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Get User Profile",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/{{userUrl}}/:username",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{userUrl}}",
+                    ":username"
+                  ],
+                  "variable": [
+                    {
+                      "key": "username",
+                      "value": "ajsdka11"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "236"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"ec-GvFif3jpCbmde2AR8mCFRubm7q4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Fri, 15 May 2026 13:13:43 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"\",\n    \"user\": {\n        \"_id\": \"6a04728f8d4f69f93bb59492\",\n        \"username\": \"ajsdka11\",\n        \"fullName\": \"asjdja11\",\n        \"isVerified\": false,\n        \"isActive\": true,\n        \"followersCount\": 0,\n        \"followingCount\": 0,\n        \"videosCount\": 0,\n        \"updatedAt\": \"2026-05-13T12:46:07.736Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Follow User",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{userUrl}}/:userId/follow",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{userUrl}}",
+                ":userId",
+                "follow"
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/{{userUrl}}/:userId/follow",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{userUrl}}",
+                    ":userId",
+                    "follow"
+                  ],
+                  "variable": [
+                    {
+                      "key": "userId",
+                      "value": "6a03239a13ed6427ad7bdbbc"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "40"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"28-PY0/VYT5B7nrX7Y9Iha3Ligs+G4\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 18 May 2026 12:39:50 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"User followed successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Followers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{userUrl}}/:userId/followers",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{userUrl}}",
+                ":userId",
+                "followers"
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Followers",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/{{userUrl}}/:userId/followers",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{userUrl}}",
+                    ":userId",
+                    "followers"
+                  ],
+                  "variable": [
+                    {
+                      "key": "userId",
+                      "value": "6a03239a13ed6427ad7bdbbc"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": null,
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json; charset=utf-8"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "117"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"75-psacxEOKLKO+6C+fwl63T94bZGo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Mon, 18 May 2026 12:41:48 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Followers retrieved successfully\",\n    \"followers\": [\n        {\n            \"_id\": \"6a04728f8d4f69f93bb59492\",\n            \"username\": \"ajsdka11\"\n        }\n    ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Avatar",
+          "request": {
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"url\": \"http://res.cloudinary.com/dcn9pnrdj/image/upload/v1779111560/zmrfluiek686c1l7opq2.png\",\r\n    \"publicId\": \"zmrfluiek686c1l7opq2\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{userUrl}}/me/avatar",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{userUrl}}",
+                "me",
+                "avatar"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Uploads",
+      "item": [
+        {
+          "name": "Upload single image",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "image",
+                  "type": "file",
+                  "uuid": "c17cb8b7-0165-47e4-ae7f-c608c2117158",
+                  "src": "/C:/Users/PC/Downloads/DNS issue.png"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{uploadUrl}}/image/single",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{uploadUrl}}",
+                "image",
+                "single"
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "image",
+                      "type": "file",
+                      "uuid": "c17cb8b7-0165-47e4-ae7f-c608c2117158",
+                      "src": "/C:/Users/PC/Downloads/DNS issue.png"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/{{uploadUrl}}/image/single",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{uploadUrl}}",
+                    "image",
+                    "single"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "782"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"30e-7bPhBbMMeqLpdBFser/jVIPWm2A\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 21 May 2026 12:05:28 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"File uploaded successfully\",\n    \"data\": {\n        \"asset_id\": \"6e15c3ed22c13c3a0600232d1b352529\",\n        \"public_id\": \"k6wqltpboajgyzc2zfwe\",\n        \"version\": 1779365128,\n        \"version_id\": \"30feefd61cfae5eddc176662f04053a5\",\n        \"signature\": \"738508b794f638c22454003f81bd6fdbe0521a5c\",\n        \"width\": 505,\n        \"height\": 234,\n        \"format\": \"png\",\n        \"resource_type\": \"image\",\n        \"created_at\": \"2026-05-21T12:05:28Z\",\n        \"tags\": [],\n        \"bytes\": 14457,\n        \"type\": \"upload\",\n        \"etag\": \"3b9ef6540cde5bc1883a93cea8361edf\",\n        \"placeholder\": false,\n        \"url\": \"http://res.cloudinary.com/dcn9pnrdj/image/upload/v1779365128/k6wqltpboajgyzc2zfwe.png\",\n        \"secure_url\": \"https://res.cloudinary.com/dcn9pnrdj/image/upload/v1779365128/k6wqltpboajgyzc2zfwe.png\",\n        \"asset_folder\": \"\",\n        \"display_name\": \"k6wqltpboajgyzc2zfwe\",\n        \"original_filename\": \"1779365117109-708943397\",\n        \"api_key\": \"557686361224916\"\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Upload single video",
+          "request": {
+            "method": "GET",
+            "header": []
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "video",
+                      "type": "file",
+                      "uuid": "ec051afa-0c80-4901-b843-e1290a9f320b",
+                      "src": "/C:/Users/PC/Downloads/ockmf1aq9vbgtrxar8f8.mp4"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/{{uploadUrl}}/video/single",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{uploadUrl}}",
+                    "video",
+                    "single"
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "1211"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"4bb-OjROMgvDVUvp3BKvbv+BsfBoCVo\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 21 May 2026 13:10:38 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"File uploaded successfully\",\n    \"data\": {\n        \"asset_id\": \"c08e26248ff3af387a92d3372bca312d\",\n        \"public_id\": \"tdfec4mfv65xee0plkgb\",\n        \"version\": 1779369038,\n        \"version_id\": \"a409cf2bf67d08705262fff36d80bdf0\",\n        \"signature\": \"8711628781f801ff2c195290783f128683fce8b4\",\n        \"width\": 720,\n        \"height\": 1280,\n        \"format\": \"mp4\",\n        \"resource_type\": \"video\",\n        \"created_at\": \"2026-05-21T13:10:38Z\",\n        \"tags\": [],\n        \"pages\": 0,\n        \"bytes\": 6750461,\n        \"type\": \"upload\",\n        \"etag\": \"3df309e2ef8d5b31384182f0f49f2b11\",\n        \"placeholder\": false,\n        \"url\": \"http://res.cloudinary.com/dcn9pnrdj/video/upload/v1779369038/tdfec4mfv65xee0plkgb.mp4\",\n        \"secure_url\": \"https://res.cloudinary.com/dcn9pnrdj/video/upload/v1779369038/tdfec4mfv65xee0plkgb.mp4\",\n        \"playback_url\": \"https://res.cloudinary.com/dcn9pnrdj/video/upload/sp_auto/v1779369038/tdfec4mfv65xee0plkgb.m3u8\",\n        \"asset_folder\": \"\",\n        \"display_name\": \"tdfec4mfv65xee0plkgb\",\n        \"audio\": {\n            \"codec\": \"aac\",\n            \"bit_rate\": \"128341\",\n            \"frequency\": 44100,\n            \"channels\": 2,\n            \"channel_layout\": \"stereo\"\n        },\n        \"video\": {\n            \"pix_format\": \"yuv420p\",\n            \"codec\": \"h264\",\n            \"level\": 31,\n            \"profile\": \"High\",\n            \"bit_rate\": \"1486420\",\n            \"time_base\": \"1/15360\"\n        },\n        \"is_audio\": false,\n        \"frame_rate\": 30,\n        \"bit_rate\": 1623357,\n        \"duration\": 33.266667,\n        \"rotation\": 0,\n        \"nb_frames\": 998,\n        \"original_filename\": \"file\",\n        \"api_key\": \"557686361224916\"\n    }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Video",
+      "item": [
+        {
+          "name": "Upload video details",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{videoUrl}}/upload",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{videoUrl}}",
+                "upload"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
     }
   ],
   "auth": {
@@ -350,6 +850,18 @@
     },
     {
       "key": "token",
+      "value": ""
+    },
+    {
+      "key": "userUrl",
+      "value": ""
+    },
+    {
+      "key": "uploadUrl",
+      "value": ""
+    },
+    {
+      "key": "videoUrl",
       "value": ""
     }
   ]

@@ -16,13 +16,11 @@ const videoSchema = new Schema(
       url: String,
       publicId: String,
       duration: Number,
-      format: String,
-      bytes: Number,
     },
-    thumbnail: {
-      url: String,
-      publicId: String,
-    },
+    // thumbnail: {
+    //   url: String,
+    //   publicId: String,
+    // },
     visibility: {
       type: String,
       enum: ["public", "private"],
