@@ -4,6 +4,8 @@ import {
   refreshToken,
   registerUser,
   logout,
+  forgotPassword,
+  resetPassword,
   getMe,
 } from "../controller/authController";
 import { protectRoute } from "../middlewares/authMiddleware";
@@ -13,6 +15,8 @@ router.post("/login", loginUser);
 router.post("/register", registerUser);
 router.post("/refresh-token", refreshToken);
 router.post("/logout", logout);
+router.post("/forgot-password", forgotPassword);
+router.post("/reset-password", resetPassword);
 router.get("/me", protectRoute, getMe);
 
 module.exports = router;
