@@ -994,7 +994,584 @@
               ]
             }
           },
-          "response": []
+          "response": [
+            {
+              "name": "Upload video details",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"url\":\"http://res.cloudinary.com/dcn9pnrdj/video/upload/v1779369038/tdfec4mfv65xee0plkgb.mp4\",\r\n    \"publicId\": \"tdfec4mfv65xee0plkgb\",\r\n    \"duration\": 33.266667,\r\n    \"caption\": \"THis is just a test\",\r\n    \"visibility\": \"public\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/{{videoUrl}}/upload",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{videoUrl}}",
+                    "upload"
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "495"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"1ef-ReJYPwDN2kfKwBSy8WZ/wDvdL70\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 02 Jun 2026 12:44:47 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"message\": \"Video details uploaded successfully\",\n    \"data\": {\n        \"userId\": \"6a04728f8d4f69f93bb59492\",\n        \"caption\": \"THis is just a test\",\n        \"video\": {\n            \"url\": \"http://res.cloudinary.com/dcn9pnrdj/video/upload/v1779369038/tdfec4mfv65xee0plkgb.mp4\",\n            \"publicId\": \"tdfec4mfv65xee0plkgb\",\n            \"duration\": 33.266667\n        },\n        \"visibility\": \"public\",\n        \"status\": \"published\",\n        \"likesCount\": 0,\n        \"commentsCount\": 0,\n        \"viewsCount\": 0,\n        \"_id\": \"6a1ed03e59b4c72da98a1ef4\",\n        \"createdAt\": \"2026-06-02T12:44:46.945Z\",\n        \"updatedAt\": \"2026-06-02T12:44:46.945Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get user videos",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{videoUrl}}/video/:userId?page=1&limit=10",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{videoUrl}}",
+                "video",
+                ":userId"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ],
+              "variable": [
+                {
+                  "key": "userId",
+                  "value": "6a04728f8d4f69f93bb59492"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get user videos",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/{{videoUrl}}/video/:userId?page=1&limit=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{videoUrl}}",
+                    "video",
+                    ":userId"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "limit",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "key": "userId",
+                      "value": "6a04728f8d4f69f93bb59492"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "548"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"224-yZ9LJBPOHJxExgQ0NaMWarcPrpA\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 02 Jun 2026 11:57:54 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"message\": \"User videos fetched successfully\",\n    \"data\": [\n        {\n            \"video\": {\n                \"url\": \"http://res.cloudinary.com/dcn9pnrdj/video/upload/v1779369038/tdfec4mfv65xee0plkgb.mp4\",\n                \"publicId\": \"tdfec4mfv65xee0plkgb\",\n                \"duration\": 33.266667\n            },\n            \"_id\": \"6a0f08d5a356f61786a8707b\",\n            \"userId\": \"6a04728f8d4f69f93bb59492\",\n            \"caption\": \"THis is just a test\",\n            \"visibility\": \"public\",\n            \"status\": \"published\",\n            \"likesCount\": 0,\n            \"commentsCount\": 0,\n            \"viewsCount\": 0,\n            \"createdAt\": \"2026-05-21T13:29:57.754Z\",\n            \"updatedAt\": \"2026-05-21T13:29:57.754Z\",\n            \"__v\": 0\n        }\n    ],\n    \"meta\": {\n        \"total\": 1,\n        \"page\": 1,\n        \"limit\": 10,\n        \"totalPages\": 1\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Update Video Details",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"caption\":\"asdasdadasda\",\r\n    \"visibility\": \"public\" //\"public\", \"private\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{videoUrl}}/video/:videoId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{videoUrl}}",
+                "video",
+                ":videoId"
+              ],
+              "variable": [
+                {
+                  "key": "videoId",
+                  "value": "6a0f08d5a356f61786a8707b"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Update Video Details",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"caption\":\"asdasdadasda\",\r\n    \"visibility\": \"private\" //\"public\", \"private\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/{{videoUrl}}/video/:videoId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{videoUrl}}",
+                    "video",
+                    ":videoId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "videoId",
+                      "value": "6a0f08d5a356f61786a8707b"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "48"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"30-dpMw1dUWTpgIFQ7FR65vYOFxtFs\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 02 Jun 2026 12:09:11 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"message\": \"Video details updated successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Video",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{videoUrl}}/video/:videoId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{videoUrl}}",
+                "video",
+                ":videoId"
+              ],
+              "variable": [
+                {
+                  "key": "videoId",
+                  "value": "6a0f08d5a356f61786a8707b"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Video",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/{{videoUrl}}/video/:videoId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{videoUrl}}",
+                    "video",
+                    ":videoId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "videoId",
+                      "value": "6a0f08d5a356f61786a8707b"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "40"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"28-eKV+7PFKZ/2DXDwtVR0EAycm0M0\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 02 Jun 2026 12:16:31 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"message\": \"Video deleted successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Like Video",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{videoUrl}}/video/:videoId/like",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{videoUrl}}",
+                "video",
+                ":videoId",
+                "like"
+              ],
+              "variable": [
+                {
+                  "key": "videoId",
+                  "value": "6a1ed03e59b4c72da98a1ef4"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Like Video",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/{{videoUrl}}/video/:videoId/like",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{videoUrl}}",
+                    "video",
+                    ":videoId",
+                    "like"
+                  ],
+                  "variable": [
+                    {
+                      "key": "videoId",
+                      "value": "6a1ed03e59b4c72da98a1ef4"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "38"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"26-IOBGI+l+wKHvEVz8/aa9fPlGP88\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 02 Jun 2026 12:45:59 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"message\": \"Video liked successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Unlike Video",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{videoUrl}}/video/:videoId/unlike",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{videoUrl}}",
+                "video",
+                ":videoId",
+                "unlike"
+              ],
+              "variable": [
+                {
+                  "key": "videoId",
+                  "value": "6a1ed03e59b4c72da98a1ef4"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Unlike Video",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/{{videoUrl}}/video/:videoId/unlike",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{videoUrl}}",
+                    "video",
+                    ":videoId",
+                    "unlike"
+                  ],
+                  "variable": [
+                    {
+                      "key": "videoId",
+                      "value": "6a1ed03e59b4c72da98a1ef4"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "40"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"28-vrlvo6RqAOWg+IMyZOzj18jS6To\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Tue, 02 Jun 2026 12:47:35 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"message\": \"Video unliked successfully\"\n}"
+            }
+          ]
         }
       ]
     }
