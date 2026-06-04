@@ -1572,6 +1572,477 @@
               "body": "{\n    \"message\": \"Video unliked successfully\"\n}"
             }
           ]
+        },
+        {
+          "name": "Add Comment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"message\": \"THis is a test comments\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{videoUrl}}/video/:videoId/comments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{videoUrl}}",
+                "video",
+                ":videoId",
+                "comments"
+              ],
+              "variable": [
+                {
+                  "key": "videoId",
+                  "value": "6a1ed03e59b4c72da98a1ef4"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"message\": \"THis is a test comments\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/{{videoUrl}}/video/:videoId/comments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{videoUrl}}",
+                    "video",
+                    ":videoId",
+                    "comments"
+                  ],
+                  "variable": [
+                    {
+                      "key": "videoId",
+                      "value": "6a1ed03e59b4c72da98a1ef4"
+                    }
+                  ]
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "330"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"14a-agpSobDYhWNt0vvBTtO4MVmJH8U\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 04 Jun 2026 12:44:42 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [],
+              "body": "{\n    \"message\": \"Comment added successfully\",\n    \"data\": {\n        \"userId\": \"6a04728f8d4f69f93bb59492\",\n        \"videoId\": \"6a1ed03e59b4c72da98a1ef4\",\n        \"parentCommentId\": null,\n        \"text\": \"THis is a test comments\",\n        \"likesCount\": 0,\n        \"isDeleted\": false,\n        \"_id\": \"6a217339230bdf634c2f7194\",\n        \"createdAt\": \"2026-06-04T12:44:41.701Z\",\n        \"updatedAt\": \"2026-06-04T12:44:41.701Z\",\n        \"__v\": 0\n    }\n}"
+            }
+          ]
+        },
+        {
+          "name": "Create Reply comment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"message\": \"THis is a test reply\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{videoUrl}}/video/:videoId/comments/:commentId/replies",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{videoUrl}}",
+                "video",
+                ":videoId",
+                "comments",
+                ":commentId",
+                "replies"
+              ],
+              "variable": [
+                {
+                  "key": "videoId",
+                  "value": "6a1ed03e59b4c72da98a1ef4"
+                },
+                {
+                  "key": "commentId",
+                  "value": "6a217339230bdf634c2f7194"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Comment",
+          "request": {
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"message\": \"this is updated comment\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/{{videoUrl}}/video/:videoId/comments/:commentId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{videoUrl}}",
+                "video",
+                ":videoId",
+                "comments",
+                ":commentId"
+              ],
+              "variable": [
+                {
+                  "key": "videoId",
+                  "value": "6a1ed03e59b4c72da98a1ef4"
+                },
+                {
+                  "key": "commentId",
+                  "value": "6a217339230bdf634c2f7194"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "success",
+              "originalRequest": {
+                "method": "PATCH",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"message\": \"this is updated comment\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/{{videoUrl}}/video/:videoId/comments/:commentId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{videoUrl}}",
+                    "video",
+                    ":videoId",
+                    "comments",
+                    ":commentId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "videoId",
+                      "value": "6a1ed03e59b4c72da98a1ef4"
+                    },
+                    {
+                      "key": "commentId",
+                      "value": "6a217339230bdf634c2f7194"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "42"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2a-kG7a++tj6BpyNvWgi4y+Mgh+LWw\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 04 Jun 2026 13:08:00 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"message\": \"Comment updated successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Delete Comment",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{videoUrl}}/video/:videoId/comments/:commentId",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{videoUrl}}",
+                "video",
+                ":videoId",
+                "comments",
+                ":commentId"
+              ],
+              "variable": [
+                {
+                  "key": "videoId",
+                  "value": "6a1ed03e59b4c72da98a1ef4"
+                },
+                {
+                  "key": "commentId",
+                  "value": "6a217339230bdf634c2f7194"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Delete Comment",
+              "originalRequest": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/{{videoUrl}}/video/:videoId/comments/:commentId",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{videoUrl}}",
+                    "video",
+                    ":videoId",
+                    "comments",
+                    ":commentId"
+                  ],
+                  "variable": [
+                    {
+                      "key": "videoId",
+                      "value": "6a1ed03e59b4c72da98a1ef4"
+                    },
+                    {
+                      "key": "commentId",
+                      "value": "6a217339230bdf634c2f7194"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "42"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"2a-kae3SxLlaCR7CeYz32LJVsXhrGg\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 04 Jun 2026 13:20:17 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"message\": \"Comment deleted successfully\"\n}"
+            }
+          ]
+        },
+        {
+          "name": "Get Video Comments",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/{{videoUrl}}/video/:videoId/comments",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "{{videoUrl}}",
+                "video",
+                ":videoId",
+                "comments"
+              ],
+              "variable": [
+                {
+                  "key": "videoId",
+                  "value": "6a1ed03e59b4c72da98a1ef4"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "name": "Get Video Comments",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseUrl}}/{{videoUrl}}/video/:videoId/comments",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "{{videoUrl}}",
+                    "video",
+                    ":videoId",
+                    "comments"
+                  ],
+                  "variable": [
+                    {
+                      "key": "videoId",
+                      "value": "6a1ed03e59b4c72da98a1ef4"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "X-Powered-By",
+                  "value": "Express"
+                },
+                {
+                  "key": "Content-Type",
+                  "value": "application/json",
+                  "description": "",
+                  "type": "text"
+                },
+                {
+                  "key": "Content-Length",
+                  "value": "981"
+                },
+                {
+                  "key": "ETag",
+                  "value": "W/\"3d5-r4QByBR4qu8FYESa4pg9f0FK3Q8\""
+                },
+                {
+                  "key": "Date",
+                  "value": "Thu, 04 Jun 2026 13:33:59 GMT"
+                },
+                {
+                  "key": "Connection",
+                  "value": "keep-alive"
+                },
+                {
+                  "key": "Keep-Alive",
+                  "value": "timeout=5"
+                }
+              ],
+              "cookie": [
+                {
+                  "expires": "Invalid Date",
+                  "domain": "",
+                  "path": ""
+                }
+              ],
+              "body": "{\n    \"message\": \"Video comments fetched successfully\",\n    \"data\": [\n        {\n            \"_id\": \"6a217d61acb7d98951cce414\",\n            \"userId\": {\n                \"avatar\": {\n                    \"url\": \"http://res.cloudinary.com/dcn9pnrdj/image/upload/v1779111560/zmrfluiek686c1l7opq2.png\",\n                    \"publicId\": \"zmrfluiek686c1l7opq2\"\n                },\n                \"_id\": \"6a04728f8d4f69f93bb59492\",\n                \"username\": \"ajsdka11\"\n            },\n            \"videoId\": \"6a1ed03e59b4c72da98a1ef4\",\n            \"parentCommentId\": \"6a21731d230bdf634c2f7193\",\n            \"text\": \"THis is a test reply\",\n            \"likesCount\": 0,\n            \"isDeleted\": false,\n            \"createdAt\": \"2026-06-04T13:28:01.345Z\",\n            \"updatedAt\": \"2026-06-04T13:28:01.345Z\",\n            \"__v\": 0\n        },\n        {\n            \"_id\": \"6a21731d230bdf634c2f7193\",\n            \"userId\": {\n                \"avatar\": {\n                    \"url\": \"http://res.cloudinary.com/dcn9pnrdj/image/upload/v1779111560/zmrfluiek686c1l7opq2.png\",\n                    \"publicId\": \"zmrfluiek686c1l7opq2\"\n                },\n                \"_id\": \"6a04728f8d4f69f93bb59492\",\n                \"username\": \"ajsdka11\"\n            },\n            \"videoId\": \"6a1ed03e59b4c72da98a1ef4\",\n            \"parentCommentId\": null,\n            \"text\": \"THis is a test comments\",\n            \"likesCount\": 0,\n            \"isDeleted\": false,\n            \"createdAt\": \"2026-06-04T12:44:13.709Z\",\n            \"updatedAt\": \"2026-06-04T12:44:13.709Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+            }
+          ]
         }
       ]
     }
