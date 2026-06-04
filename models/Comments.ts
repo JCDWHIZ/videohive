@@ -37,4 +37,4 @@ const VideoCommentsSchema = new Schema(
   },
 );
 
-const VideoComment = model("Comment", VideoCommentsSchema);
+export const VideoComment = model("Comment", VideoCommentsSchema);

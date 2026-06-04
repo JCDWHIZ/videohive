@@ -1,6 +1,7 @@
 import { Response } from "express";
 import { User } from "../models/User";
 import { Video } from "../models/Video";
+import { VideoComment } from "../models/Comments";
 
 export const uploadVideoDetails = async (req: any, res: Response) => {
   try {
@@ -250,5 +251,164 @@ export const unlikeVideo = async (req: any, res: Response) => {
   } catch (error) {
     console.error("Error unliking video:", error);
     res.status(500).json({ error: "Failed to unlike video" });
+  }
+};
+
+export const addComments = async (req: any, res: Response) => {
+  try {
+    const { videoId } = req.params;
+    const { message } = req.body;
+
+    const video = await Video.findById(videoId);
+    if (!video) {
+      return res.status(404).json({ message: "Video not found" });
+    }
+
+    const comment = await VideoComment.create({
+      userId: req.user.id,
+      videoId,
+      text: message,
+    });
+
+    video.commentsCount = (video.commentsCount || 0) + 1;
+    await video.save();
+
+    return res.status(201).json({
+      message: "Comment added successfully",
+      data: comment,
+    });
+  } catch (error) {
+    console.error("Error adding comment:", error);
+    res.status(500).json({ error: "Failed to add comment" });
+  }
+};
+
+export const getVideoComments = async (req: any, res: Response) => {
+  try {
+    const { videoId } = req.params;
+
+    const video = await Video.findById(videoId);
+    if (!video) {
+      return res.status(404).json({ message: "Video not found" });
+    }
+    const comments = await VideoComment.find({ videoId })
+      .sort({
+        createdAt: -1,
+      })
+      // .populate("parentCommentId", "text userId createdAt likesCount")
+      .populate("userId", "username avatar");
+
+    return res.status(200).json({
+      message: "Video comments fetched successfully",
+      data: comments,
+    });
+  } catch (error) {
+    console.error("Error fetching video comments:", error);
+    res.status(500).json({ error: "Failed to fetch video comments" });
+  }
+};
+export const updateComment = async (req: any, res: Response) => {
+  try {
+    const { videoId, commentId } = req.params;
+    const { message } = req.body;
+
+    const video = await Video.findById(videoId);
+
+    if (!video) {
+      return res.status(404).json({ message: "Video not found" });
+    }
+
+    const comment = await VideoComment.findOne({ _id: commentId, videoId });
+
+    if (!comment) {
+      return res.status(404).json({ message: "Comment not found" });
+    }
+
+    if (comment.userId.toString() !== req.user.id) {
+      return res
+        .status(403)
+        .json({ message: "Unauthorized to update this comment" });
+    }
+
+    comment.text = message;
+    await comment.save();
+
+    return res.status(200).json({
+      message: "Comment updated successfully",
+    });
+  } catch (error) {
+    console.error("Error updating comment:", error);
+    res.status(500).json({ error: "Failed to update comment" });
+  }
+};
+
+export const deleteComment = async (req: any, res: Response) => {
+  try {
+    const { videoId, commentId } = req.params;
+
+    const video = await Video.findById(videoId);
+
+    if (!video) {
+      return res.status(404).json({ message: "Video not found" });
+    }
+
+    const comment = await VideoComment.findOne({ _id: commentId, videoId });
+
+    if (!comment) {
+      return res.status(404).json({ message: "Comment not found" });
+    }
+
+    if (comment.userId.toString() !== req.user.id) {
+      return res
+        .status(403)
+        .json({ message: "Unauthorized to delete this comment" });
+    }
+
+    await comment.deleteOne();
+    video.commentsCount = Math.max((video.commentsCount || 1) - 1, 0);
+    await video.save();
+
+    return res.status(200).json({
+      message: "Comment deleted successfully",
+    });
+  } catch (error) {
+    console.error("Error deleting comment:", error);
+    res.status(500).json({ error: "Failed to delete comment" });
+  }
+};
+
+export const replyToComment = async (req: any, res: Response) => {
+  try {
+    const { videoId, commentId } = req.params;
+    const { message } = req.body;
+
+    const video = await Video.findById(videoId);
+
+    if (!video) {
+      return res.status(404).json({ message: "Video not found" });
+    }
+
+    const parentComment = await VideoComment.findOne({
+      _id: commentId,
+      videoId,
+    });
+
+    if (!parentComment) {
+      return res.status(404).json({ message: "Parent comment not found" });
+    }
+
+    const replyComment = await VideoComment.create({
+      userId: req.user.id,
+      videoId,
+      parentCommentId: commentId,
+      text: message,
+    });
+
+    return res.status(201).json({
+      message: "Reply added successfully",
+    });
+  } catch (error) {
+    console.error("Error replying to comment:", error);
+    res.status(500).json({ error: "Failed to reply to comment" });
   }
 };
